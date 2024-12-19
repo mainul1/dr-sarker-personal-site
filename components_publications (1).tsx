@@ -25,17 +25,17 @@ export default function Publications() {
   const displayedPublications = showAll ? publications : publications.slice(0, 3)
 
   return (
-    <section id="publications" className="py-16 bg-white">
+    <section id="publications" className="py-16 bg-background">
       <div className="container px-4 md:px-6">
-        <h2 className="text-3xl font-bold tracking-tighter text-center mb-8 text-blue-800">Selected Publications</h2>
+        <h2 className="text-3xl font-bold tracking-tighter text-center mb-8">Selected Publications</h2>
         <div className="grid gap-6">
           {displayedPublications.map((pub, index) => (
-            <Card key={index} className="bg-blue-50">
+            <Card key={index}>
               <CardHeader>
-                <CardTitle className="text-lg text-blue-700">{pub.title}</CardTitle>
+                <CardTitle className="text-lg">{pub.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   {pub.journal} ({pub.year}) • {pub.citations} citations
                 </p>
               </CardContent>
@@ -44,7 +44,7 @@ export default function Publications() {
         </div>
         {publications.length > 3 && (
           <div className="text-center mt-8">
-            <Button onClick={() => setShowAll(!showAll)} className="bg-blue-600 hover:bg-blue-700 text-white">
+            <Button onClick={() => setShowAll(!showAll)}>
               {showAll ? 'Show Less' : 'View More'}
             </Button>
           </div>
